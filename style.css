@@ -1,0 +1,1291 @@
+/* style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+:root {
+  --linkedin-blue: #0a66c2;
+  --dark-blue: #004182;
+  --gray-background: #f3f2ef;
+  --gray-text: #666666;
+  --border-color: #e0e0e0;
+}
+
+body {
+  background-color: var(--gray-background);
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #fff;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 52px;
+}
+
+.left,
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.left {
+  gap: 8px;
+  position: relative; /* Essential for positioning the search popup */
+}
+
+.logo i {
+  color: var(--linkedin-blue);
+  font-size: 28px;
+}
+
+/* --- Search Input Container --- */
+.input {
+  display: flex;
+  align-items: center;
+  background-color: #edf3f8;
+  border-radius: 4px;
+  padding: 4px 10px;
+  width: 280px;
+  position: relative; /* For absolute positioning of the popup */
+}
+
+.input i {
+  color: var(--gray-text);
+  margin-right: 5px;
+}
+
+.input input {
+  border: none;
+  background: none;
+  font-size: 14px;
+  outline: none;
+  padding: 0;
+  width: 100%;
+}
+
+/* --- NEW: Search Results Popup Styling --- */
+#search-results-popup {
+    position: absolute;
+    top: 40px; /* Below the input field */
+    left: 0;
+    width: 320px; /* Slightly wider than the input */
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1001; /* Above the main nav items */
+    padding: 10px 0;
+}
+
+.search-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 15px;
+}
+
+.search-item-header strong {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-text);
+    text-transform: uppercase;
+}
+
+#clear-search-history-btn {
+    background: none;
+    border: none;
+    color: var(--linkedin-blue);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+}
+
+.search-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.search-item:hover {
+    background-color: var(--gray-background);
+}
+
+.search-item i {
+    font-size: 14px;
+    color: var(--gray-text);
+    margin-right: 10px;
+}
+
+.search-item span {
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    flex-grow: 1;
+}
+
+.search-item span strong {
+    font-weight: 600; /* For highlighting search terms */
+}
+
+.search-item.recent-search {
+    justify-content: space-between;
+}
+
+.search-item .remove-search {
+    font-size: 10px;
+    color: var(--gray-text);
+    cursor: pointer;
+    padding: 5px;
+}
+
+.search-item .remove-search:hover {
+    color: #333;
+}
+/* END NEW */
+
+
+/* --- Right Navigation --- */
+.right {
+  gap: 20px;
+}
+
+.right .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 5px 8px;
+  cursor: pointer;
+  position: relative;
+  height: 52px;
+  justify-content: center;
+}
+/* ... (rest of the CSS remains the same) ... */
+.right .nav-item:hover {
+  color: #333;
+}
+
+.right .nav-item i {
+  font-size: 20px;
+  color: var(--gray-text);
+}
+
+.right .nav-item h6 {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--gray-text);
+  margin-top: 2px;
+}
+
+.right .nav-item.active i,
+.right .nav-item.active h6 {
+    color: #333; /* Darker on active */
+}
+
+/* Badge Styling for data-count */
+.nav-item[data-count]:not([data-count="0"])::after {
+    content: attr(data-count);
+    position: absolute;
+    top: 4px;
+    right: 0px;
+    background-color: #ff0000;
+    color: white;
+    border-radius: 50%;
+    padding: 1px 5px;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1;
+    min-width: 18px;
+    text-align: center;
+    border: 1px solid white;
+    z-index: 1001;
+}
+
+
+.right .nav-item .down {
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.right .nav-item .down i {
+  font-size: 10px;
+  margin-left: 2px;
+}
+
+.right a {
+  font-size: 12px;
+  color: var(--dark-blue);
+  text-decoration: none;
+  text-align: center;
+  width: 100px;
+  border-left: 1px solid var(--border-color);
+  padding-left: 10px;
+  line-height: 1.2;
+}
+
+/* ================================================================= */
+/* --- Main Content Layout --- */
+/* ================================================================= */
+
+.container {
+  max-width: 1200px;
+  margin: 52px auto 0; /* Add margin-top to clear fixed nav */
+  padding: 24px 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+aside {
+  width: 225px;
+}
+
+main {
+  width: 540px;
+  flex-grow: 1;
+}
+
+.right_side {
+  width: 300px;
+}
+
+/* ================================================================= */
+/* --- Sidebar (Aside) Styling --- */
+/* ================================================================= */
+
+.sidebar,
+.recent_jobs,
+.right_side > div {
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 8px;
+}
+
+/* --- Sidebar: Profile Card --- */
+
+.sidebar .top {
+    height: 60px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: var(--linkedin-blue);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+#change-banner-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.profile-img-container {
+    position: relative;
+    width: 72px;
+    height: 72px;
+    margin: -36px auto 0;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px var(--border-color);
+}
+
+.profile-img-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: block;
+}
+
+#change-photo-btn {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    color: #fff;
+    background-color: var(--linkedin-blue);
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.profile {
+  padding: 10px 15px 15px;
+  text-align: center;
+}
+
+.profile a {
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.profile a:hover {
+  text-decoration: underline;
+}
+
+.profile small {
+  display: block;
+  color: var(--gray-text);
+  font-size: 12px;
+}
+
+#edit-profile-btn {
+    color: var(--gray-text);
+    margin-left: 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 10px 0;
+}
+
+/* --- Sidebar: Views Section --- */
+.view {
+    padding: 0 15px 10px;
+}
+
+.views {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.views h6 {
+    font-weight: 400;
+    color: var(--gray-text);
+    font-size: 12px;
+}
+
+.views a {
+    font-weight: 500;
+    color: var(--linkedin-blue);
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* --- Sidebar: Premium Section --- */
+.premium {
+    padding: 0 15px 10px;
+}
+
+.premium h6 {
+    font-weight: 400;
+    color: var(--gray-text);
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.premium a {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.premium a i {
+    color: goldenrod;
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+/* --- Sidebar: My Items --- */
+.items {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.items:hover {
+    background-color: var(--gray-background);
+}
+
+.items i {
+    color: var(--gray-text);
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.items h6 {
+    font-weight: 600;
+    font-size: 12px;
+    color: #333;
+}
+
+/* --- Sidebar: Skills Section --- */
+.skills-section {
+    padding: 10px 15px;
+}
+
+.skills-section h6 {
+    font-weight: 600;
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+#skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.skill-tag {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
+}
+
+.add-skills-container a {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: var(--linkedin-blue);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 5px 0;
+    border: 1px solid var(--linkedin-blue);
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.add-skills-container a:hover {
+    background-color: rgba(10, 102, 194, 0.08);
+}
+
+/* --- Sidebar: Recent/Groups/Events --- */
+.recent_jobs {
+    padding: 10px 0;
+}
+
+.recent, .groups {
+    padding: 0 15px;
+}
+
+.recent h6 {
+    font-weight: 600;
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.recent .one, .groups .two {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    cursor: pointer;
+    padding: 3px 0;
+}
+
+.recent .one:hover, .groups .two:hover {
+    color: var(--linkedin-blue);
+    background-color: var(--gray-background);
+}
+
+.recent .one i, .groups .two i {
+    font-size: 12px;
+    color: var(--gray-text);
+    margin-right: 8px;
+}
+
+.recent .one h6, .groups .two h6 {
+    font-weight: 500;
+    font-size: 12px;
+    color: #333;
+    margin: 0;
+}
+
+.groups h5 {
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--linkedin-blue);
+    margin: 10px 0;
+}
+
+.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.show h6 {
+    font-weight: 500;
+    font-size: 12px;
+    color: #333;
+    margin-right: 5px;
+}
+
+.show i {
+    font-size: 10px;
+    color: #333;
+}
+
+.events {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.events h6 {
+    font-weight: 600;
+    font-size: 12px;
+    color: #333;
+}
+
+.events i {
+    font-size: 12px;
+    color: #333;
+    cursor: pointer;
+}
+
+.discover {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.discover a {
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ================================================================= */
+/* --- Main Content (Post Creation) --- */
+/* ================================================================= */
+
+.media {
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.search img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.search input {
+  flex-grow: 1;
+  height: 48px;
+  border-radius: 30px;
+  border: 1px solid var(--border-color);
+  padding: 0 15px;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.search input:hover {
+  background-color: var(--gray-background);
+}
+
+.posts {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px 0;
+}
+
+.post {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.post:hover {
+  background-color: var(--gray-background);
+}
+
+.post i {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.post h5 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+}
+
+.post:nth-child(1) i {
+  color: #378fe9; /* Photo Blue */
+}
+.post:nth-child(2) i {
+  color: #5f9b41; /* Video Green */
+}
+.post:nth-child(3) i {
+  color: #a8793b; /* Job Gold */
+}
+.post:nth-child(4) i {
+  color: #e16745; /* Article Orange */
+}
+
+/* ================================================================= */
+/* --- Feed Post Styling --- */
+/* ================================================================= */
+
+.feed-post {
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    padding: 15px 0 0;
+    margin-bottom: 10px;
+}
+
+.post-header {
+    display: flex;
+    align-items: flex-start;
+    padding: 0 15px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.post-user-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.post-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.post-info strong {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+}
+
+.post-info small {
+    color: var(--gray-text);
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 2px;
+}
+
+.post-timestamp {
+    display: flex;
+    align-items: center;
+}
+
+.post-timestamp i {
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+.post-options {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 16px;
+    color: var(--gray-text);
+    cursor: pointer;
+    padding: 5px;
+}
+
+.post-options:hover {
+    background-color: var(--gray-background);
+    border-radius: 4px;
+}
+
+/* --- Post Body --- */
+.post-body {
+    margin-bottom: 10px;
+}
+
+.post-body p {
+    padding: 0 15px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.post-image-placeholder {
+    width: 100%;
+    max-height: 400px; /* Limit height for display */
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+.post-image-placeholder img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* --- Post Stats --- */
+.post-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px 10px;
+    font-size: 12px;
+    color: var(--gray-text);
+}
+
+.reaction-summary {
+    display: flex;
+    align-items: center;
+}
+
+.reaction-summary i {
+    font-size: 12px;
+    margin-right: 3px;
+}
+
+.reaction-summary .likes-count {
+    margin-left: 5px;
+    font-weight: 500;
+}
+
+.engagement-summary span {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.engagement-summary span:hover {
+    color: var(--linkedin-blue);
+    text-decoration: underline;
+}
+
+.view-count i {
+    font-size: 12px;
+    margin-right: 3px;
+}
+
+/* --- Post Actions --- */
+.feed-post hr {
+    margin: 0;
+    border-color: var(--border-color);
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 15px;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 4px;
+    color: var(--gray-text);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.action-btn i {
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+.action-btn:hover {
+    background-color: var(--gray-background);
+    color: #333;
+}
+
+.action-btn.active-like {
+    color: var(--linkedin-blue);
+}
+
+/* --- Comments Section --- */
+.comments-section {
+    padding: 10px 15px 15px;
+}
+
+.comment-input-area {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.comment-user-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.new-comment-input {
+    flex-grow: 1;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 8px 12px;
+    font-size: 14px;
+    outline: none;
+    height: 36px;
+    transition: border-color 0.2s;
+}
+
+.new-comment-input:focus {
+    border-color: #333;
+}
+
+.post-comment-btn {
+    background-color: transparent;
+    border: none;
+    color: var(--linkedin-blue);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.btn-disabled {
+    color: #ccc;
+    cursor: default;
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.comment-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.comment-body {
+    background-color: var(--gray-background);
+    border-radius: 8px;
+    padding: 8px 12px;
+    max-width: calc(100% - 44px); /* Full width minus image and margin */
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-body strong {
+    font-weight: 600;
+    font-size: 13px;
+    color: #333;
+    line-height: 1.2;
+}
+
+.comment-body small:first-of-type {
+    font-size: 11px;
+    color: var(--gray-text);
+    font-weight: 400;
+    margin-bottom: 4px;
+}
+
+.comment-body p {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+}
+
+.comment-timestamp {
+    font-size: 10px;
+    color: var(--gray-text);
+    margin-top: 5px;
+    align-self: flex-start;
+}
+
+
+/* ================================================================= */
+/* --- Right Side (News) Styling --- */
+/* ================================================================= */
+
+.right_side .news {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.right_side .news h4 {
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+}
+
+.right_side .news i {
+    font-size: 14px;
+    color: var(--gray-text);
+    cursor: pointer;
+}
+
+.latest_news {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.latest_news:hover {
+    background-color: var(--gray-background);
+}
+
+.latest_news .one {
+    display: flex;
+    align-items: flex-start;
+    width: 80%;
+}
+
+.latest_news .one i {
+    font-size: 6px;
+    color: #333;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.latest_news .one h5 {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+}
+
+.latest_news .two small {
+    font-size: 12px;
+    color: var(--gray-text);
+    white-space: nowrap; /* Keep time on one line */
+}
+
+.show_more {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-top: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+.show_more:hover {
+    background-color: var(--gray-background);
+}
+
+.show_more h5 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-text);
+    margin-right: 5px;
+}
+
+.show_more i {
+    font-size: 10px;
+    color: var(--gray-text);
+}
+
+/* ================================================================= */
+/* --- Navigation Popups (Dropdowns) Styling --- */
+/* ================================================================= */
+
+.popup-wrapper {
+    position: fixed;
+    top: 52px; /* Below the nav bar */
+    right: 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    pointer-events: none; /* Allows clicks to pass through wrapper */
+    z-index: 999;
+    display: flex;
+    justify-content: flex-end; /* Align popups to the right */
+    padding-right: 10px; /* Aligns with wrapper padding */
+}
+
+.nav-popup {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    top: 5px;
+    padding: 15px;
+    width: 350px;
+    max-height: 500px;
+    overflow-y: auto;
+    pointer-events: auto; /* Re-enable clicks on the popup itself */
+}
+
+.hidden {
+    display: none;
+}
+
+/* Position specific popups under their icons */
+#my-network-popup { right: 340px; }
+#jobs-popup { right: 270px; }
+#messaging-popup { right: 200px; }
+#notifications-popup { right: 130px; }
+#me-popup { right: 50px; width: 300px; }
+#work-popup { right: 10px; }
+
+
+.nav-popup h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-popup > a {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: var(--linkedin-blue);
+    text-decoration: none;
+    padding-top: 10px;
+}
+
+/* --- Shared Popup Item Styling (for Network, Messaging, Notifications) --- */
+.popup-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+.popup-item:last-of-type {
+    border-bottom: none;
+}
+
+.popup-item:hover {
+    background-color: var(--gray-background);
+}
+
+.popup-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.item-details strong {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.2;
+}
+
+.item-details small {
+    font-size: 12px;
+    color: var(--gray-text);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+/* --- My Network Specifics --- */
+#my-network-popup .popup-item {
+    justify-content: space-between;
+}
+
+.btn-accept {
+    background: none;
+    border: 1px solid var(--linkedin-blue);
+    color: var(--linkedin-blue);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-left: 10px;
+}
+
+.btn-accept:hover {
+    background-color: rgba(10, 102, 194, 0.08);
+}
+
+/* --- Jobs Specifics --- */
+#jobs-popup .popup-item {
+    display: block;
+    border-left: 3px solid transparent;
+}
+
+#jobs-popup .popup-item:hover {
+    border-left: 3px solid var(--linkedin-blue);
+}
+
+/* --- Messaging Specifics --- */
+.popup-item.unread {
+    background-color: #fcf8e3; /* Light yellow background for unread */
+}
+
+/* --- Notifications Specifics --- */
+#notifications-popup .popup-item i {
+    font-size: 18px;
+    color: var(--linkedin-blue);
+    margin-right: 10px;
+    flex-shrink: 0;
+    align-self: center;
+}
+
+/* --- Me Popup Specifics --- */
+#me-popup h4 {
+    border-top: 1px solid var(--border-color);
+    padding-top: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #333;
+}
+
+.me-dropdown-section {
+    padding-bottom: 10px;
+}
+
+.me-dropdown-section.no-border-top h4 {
+    border-top: none;
+}
+
+#me-popup a:not(.me-view-profile) {
+    display: block;
+    padding: 5px 0;
+    font-size: 14px;
+    color: var(--gray-text);
+    text-decoration: none;
+    padding-left: 5px;
+}
+
+#me-popup a:not(.me-view-profile):hover {
+    background-color: var(--gray-background);
+    color: #333;
+}
+
+.me-popup-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.me-view-profile {
+    border: 1px solid var(--linkedin-blue);
+    color: var(--linkedin-blue) !important;
+    border-radius: 20px;
+    padding: 5px 10px !important;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 5px;
+    transition: background-color 0.1s;
+}
+
+.me-view-profile:hover {
+    background-color: rgba(10, 102, 194, 0.08);
+}
+
+
+/* --- Work Popup Specifics --- */
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.work-grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    padding: 8px 4px;
+    border-radius: 4px;
+    transition: background-color 0.1s;
+}
+
+.work-grid-item:hover {
+    background-color: var(--gray-background);
+}
+
+.work-grid-item i {
+    font-size: 20px;
+    color: var(--linkedin-blue);
+    margin-bottom: 4px;
+}
+
+.work-grid-item span {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.2;
+}

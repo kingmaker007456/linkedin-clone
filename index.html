@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Linkedin</title>
+  </head>
+  <body>
+    <nav>
+      <div class="wrapper">
+        <div class="left">
+          <div class="logo">
+            <i class="fa-brands fa-linkedin"></i>
+          </div>
+          <div class="input" id="search-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="search"
+              placeholder="Search for job, Skills & Companies..."
+              id="global-search-input"
+            />
+            <div id="search-results-popup" class="hidden">
+                <div class="search-item-header">
+                    <strong>Try searching for:</strong>
+                </div>
+                <div class="search-item mock-result">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Frontend **Developer**</span>
+                </div>
+                <div class="search-item mock-result">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>Recently searched: **React** jobs</span>
+                </div>
+                <div class="search-item mock-result">
+                    <i class="fa-solid fa-user-group"></i>
+                    <span>**Design** Thinking course</span>
+                </div>
+                <div class="search-item-header">
+                    <strong>Recent searches</strong>
+                    <button id="clear-search-history-btn">Clear</button>
+                </div>
+                <div class="search-item recent-search">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>Marketing Manager</span>
+                    <i class="fa-solid fa-xmark remove-search"></i>
+                </div>
+                <div class="search-item recent-search">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>Software Engineer</span>
+                    <i class="fa-solid fa-xmark remove-search"></i>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="right">
+          <div class="home">
+            <i class="fa-solid fa-house"></i>
+            <h6>Home</h6>
+          </div>
+          <div class="network nav-item" data-section="my-network" data-count="15">
+            <i class="fa-solid fa-user-group"></i>
+            <h6>My Network</h6>
+          </div>
+          <div class="jobs nav-item" data-section="jobs" data-count="3">
+            <i class="fa-solid fa-suitcase"></i>
+            <h6>Jobs</h6>
+          </div>
+          <div class="message nav-item" data-section="messaging" data-count="1">
+            <i class="fa-solid fa-message"></i>
+            <h6>Messaging</h6>
+          </div>
+          <div class="notification nav-item" data-section="notifications" data-count="5">
+            <i class="fa-solid fa-bell"></i>
+            <h6>Notifications</h6>
+          </div>
+          <div class="me nav-item" data-section="me">
+            <i class="fa-solid fa-user"></i>
+            <div class="down">
+              <h6>Me</h6>
+              <i class="fa-solid fa-angle-down"></i>
+            </div>
+          </div>
+          <div class="work nav-item" data-section="work">
+            <i class="fa-solid fa-braille"></i>
+            <div class="down">
+              <h6>Work</h6>
+              <i class="fa-solid fa-angle-down"></i>
+            </div>
+          </div>
+          <a href="#">Try Premium for free</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="popup-wrapper">
+      <div id="my-network-popup" class="nav-popup hidden">
+        <h4>Invitations (15)</h4>
+        <div class="popup-content">
+          <div class="popup-item">
+            <img src="./Images/dpn.jpg" alt="User" />
+            <div class="item-details">
+              <strong>Mia Khalifa</strong>
+              <small>Software Engineer at Google</small>
+            </div>
+            <button class="btn-accept">Accept</button>
+          </div>
+          <div class="popup-item">
+            <img src="./Images/dpm.jpg" alt="User" />
+            <div class="item-details">
+              <strong>Kristina Sweet</strong>
+              <small>UX Designer at Microsoft</small>
+            </div>
+            <button class="btn-accept">Accept</button>
+          </div>
+          <a href="#">See all 15 invitations</a>
+        </div>
+      </div>
+
+      <div id="jobs-popup" class="nav-popup hidden">
+        <h4>Suggested Jobs (3 New)</h4>
+        <div class="popup-content">
+          <div class="popup-item">
+            <strong>Frontend Developer</strong>
+            <small>TechCorp · Remote</small>
+          </div>
+          <div class="popup-item">
+            <strong>Data Scientist</strong>
+            <small>DataGenius · San Francisco, CA</small>
+          </div>
+          <a href="#">View all recommended jobs</a>
+        </div>
+      </div>
+
+      <div id="messaging-popup" class="nav-popup hidden">
+        <h4>Recent Messages (1 Unread)</h4>
+        <div class="popup-content">
+          <div class="popup-item unread">
+            <img src="./Images/dpp.jpg" alt="User" />
+            <div class="item-details">
+              <strong>Haris jayaraj</strong>
+              <small>Happy Birthday Nirmalraj</small>
+            </div>
+          </div>
+          <div class="popup-item">
+            <img src="./Images/dpo.jpg" alt="User" />
+            <div class="item-details">
+              <strong>Team Lead</strong>
+              <small>Project status update tomorrow.</small>
+            </div>
+          </div>
+          <a href="#">Go to Messaging</a>
+        </div>
+      </div>
+
+      <div id="notifications-popup" class="nav-popup hidden">
+        <h4>Notifications (5 New)</h4>
+        <div class="popup-content">
+          <div class="popup-item">
+            <i class="fa-solid fa-thumbs-up"></i>
+            <div class="item-details">
+              <strong>Sarah liked your post.</strong>
+              <small>1h ago</small>
+            </div>
+          </div>
+          <div class="popup-item">
+            <i class="fa-solid fa-users"></i>
+            <div class="item-details">
+              <strong>New post in Web Designer group.</strong>
+              <small>5h ago</small>
+            </div>
+          </div>
+          <a href="#">See all notifications</a>
+        </div>
+      </div>
+      
+      <div id="me-popup" class="nav-popup hidden">
+          <div class="me-popup-header">
+              <img src="./Images/dp.jpg" alt="Profile" style="width: 48px; height: 48px; border-radius: 50%; margin-right: 10px;">
+              <div class="item-details">
+                  <strong>Nirmalraj D</strong>
+                  <small>Professional Python Developer & Engineer</small>
+              </div>
+          </div>
+          <a href="#" class="me-view-profile" data-action="view-profile">View Profile</a>
+          
+          <div class="me-dropdown-section">
+              <h4>Account</h4>
+              <a href="#">Settings & Privacy</a>
+              <a href="#">Help</a>
+              <a href="#">Language</a>
+          </div>
+          
+          <div class="me-dropdown-section">
+              <h4>Manage</h4>
+              <a href="#">Posts & Activity</a>
+              <a href="#">Job Posting Account</a>
+          </div>
+          
+          <div class="me-dropdown-section no-border-top">
+              <a href="#">Sign Out</a>
+          </div>
+      </div>
+      
+      <div id="work-popup" class="nav-popup hidden" style="width: 320px;">
+          <h4 style="padding-bottom: 5px;">LinkedIn Business Services</h4>
+          <div class="popup-content work-grid">
+              <a href="#" class="work-grid-item">
+                  <i class="fa-solid fa-briefcase"></i>
+                  <span>Talent Solutions</span>
+              </a>
+              <a href="#" class="work-grid-item">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                  <span>Learning</span>
+              </a>
+              <a href="#" class="work-grid-item">
+                  <i class="fa-solid fa-bullhorn"></i>
+                  <span>Marketing</span>
+              </a>
+              <a href="#" class="work-grid-item">
+                  <i class="fa-solid fa-chart-line"></i>
+                  <span>Sales Solutions</span>
+              </a>
+              <a href="#" class="work-grid-item">
+                  <i class="fa-solid fa-plus"></i>
+                  <span>Post a Job</span>
+              </a>
+              <a href="#" class="work-grid-item">
+                  <i class="fa-solid fa-users"></i>
+                  <span>Groups</span>
+              </a>
+          </div>
+          <a href="#" style="border-top: 1px solid #eee; margin-top: 10px;">Create a Company Page +</a>
+      </div>
+      
+    </div>
+    <div class="container">
+      <aside>
+        <div class="sidebar">
+          <div class="top" id="profile-banner" data-banner-url="./Images/banner.jpg" style="background-image: url('./Images/banner.jpg');">
+             <i class="fa-solid fa-camera" id="change-banner-btn"></i>
+          </div>
+          <div class="profile-img-container">
+            <img id="profile-photo" src="./Images/dp.jpg" alt="Profile Photo" data-photo-url="./Images/dp.jpg" />
+            <i class="fa-solid fa-camera" id="change-photo-btn"></i>
+          </div>
+
+          <div class="profile">
+            <a href="#" data-profile-name="Nirmalraj D">Nirmalraj D</a>
+            <small data-profile-designation="Professional Python Developer & Engineer">Professional Python Developer & Engineer</small>
+            <hr id="profile">
+          </div>
+          <div class="view">
+              <div class="views">
+                  <h6>Who viewed your profile</h6>
+                  <a href="#">42</a>
+              </div>
+              <div class="views">
+                  <h6>View of your post</h6>
+                  <a href="#">64</a>
+              </div>
+              <hr id="view">
+          </div>
+          <div class="premium">
+              <h6>Access exclusive tools & insights</h6>
+              <a href="#"><i class="fa-solid fa-box"></i>Try Premium for free</a>
+              <hr id="premium">
+          </div>
+          <div class="items">
+            <i class="fa-solid fa-bookmark"></i>
+            <h6>My Items</h6>
+          </div>
+
+          <div class="skills-section">
+              <h6>Skills</h6>
+              <div id="skills-list" data-skills="Python,C,Java,Kotlin,HTML5 & CSS,Responsive Design">
+                  </div>
+              <div class="add-skills-container">
+                  <a href="#" id="manage-skills-btn">Add Skill</a>
+              </div>
+          </div>
+          <hr id="skills-separator"> </div>
+
+        <div class="recent_jobs">
+            <div class="recent">
+                <h6>Recent</h6>
+                <div class="one">
+                    <i class="fa-solid fa-users"></i>
+                    <h6>Web Designer, HTML & CSS...</h6>
+                </div>
+                <div class="one">
+                    <i class="fa-solid fa-users"></i>
+                    <h6>The Flexbox Jobs...</h6>
+                </div>
+                <div class="one">
+                    <i class="fa-solid fa-users"></i>
+                    <h6>Front End Developer Group</h6>
+                </div>
+                <div class="one">
+                    <i class="fa-solid fa-users"></i>
+                    <h6>UI Developer / Front End...</h6>
+                </div>
+            </div>
+            <div class="groups">
+                <h5>Groups</h5>
+                <div class="two">
+                    <i class="fa-solid fa-users"></i>
+                    <h6>Web Designer, HTML & CSS...</h6>
+                </div>
+                <div class="two">
+                    <i class="fa-solid fa-users"></i>
+                    <h6>Data Scientists Group</h6>
+                </div>
+                <div class="two">
+                    <i class="fa-solid fa-users"></i>
+                    <h6>The Flexbox Jobs...</h6>
+                </div>
+                <div class="two">
+                    <i class="fa-solid fa-users"></i>
+                    <h6>Full Stack Developer Group</h6>
+                </div>
+                <div class="show">
+                    <h6>Show more</h6>
+                    <i class="fa-solid fa-angle-down"></i>
+                </div>
+            </div>
+            <div class="events">
+                <h6>Events</h6>
+                <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="discover">
+                <a href="#">Discover more</a>
+            </div>
+        </div>
+      </aside>
+
+      <main>
+        <div class="media">
+            <div class="search">
+                <img src="./Images/dp.jpg" alt="">
+                <input type="search" placeholder="Start a post">
+            </div>
+            <div class="posts">
+            <div class="post">
+                <i class="fa-solid fa-image"></i>
+                <h5>Photo</h5>
+            </div>
+            <div class="post">
+                <i class="fa-solid fa-video"></i>
+                <h5>Video</h5>
+            </div>
+            <div class="post">
+                <i class="fa-solid fa-briefcase"></i>
+                <h5>Job</h5>
+            </div>
+            <div class="post">
+                <i class="fa-solid fa-pen"></i>
+                <h5>Write Article</h5>
+            </div>
+        </div>
+        </div>
+        
+        <div class="feed-post" data-post-id="12345">
+            <div class="post-header">
+                <img src="./Images/dp.jpg" alt="User Profile" class="post-user-img">
+                <div class="post-info">
+                    <strong>Nirmalraj D</strong>
+                    <small>Professional Python Developer & Engineer</small>
+                    <small class="post-timestamp">2h • <i class="fa-solid fa-earth-americas"></i></small>
+                </div>
+                <i class="fa-solid fa-ellipsis post-options"></i>
+            </div>
+
+            <div class="post-body">
+                <p>Thrilled to share my latest project! Leveraging pure HTML, CSS, and JavaScript to build a realistic LinkedIn clone. Focusing on clean code and responsive design. Always pushing to learn new skills! #webdevelopment #frontend #javascript</p>
+                <div class="post-image-placeholder">
+                    <img src="./Images/event.jpg" alt="Project Screenshot" />
+                </div>
+            </div>
+
+            <div class="post-stats">
+                <div class="reaction-summary">
+                    <i class="fa-solid fa-thumbs-up"></i>
+                    <i class="fa-solid fa-heart" style="color: #F80000;"></i>
+                    <span class="likes-count">245</span>
+                </div>
+                <div class="engagement-summary">
+                    <span class="comment-count" data-comments="18">18 comments</span>
+                    <span class="share-count">5 shares</span>
+                    <span class="view-count" data-views="1500">
+                        <i class="fa-solid fa-eye"></i> 1,500 views
+                    </span>
+                </div>
+            </div>
+            <hr>
+
+            <div class="post-actions">
+                <button class="action-btn" data-action="like"><i class="fa-regular fa-thumbs-up"></i> Like</button>
+                <button class="action-btn" data-action="comment"><i class="fa-regular fa-comment-dots"></i> Comment</button>
+                <button class="action-btn" data-action="share"><i class="fa-solid fa-share"></i> Share</button>
+                <button class="action-btn" data-action="send"><i class="fa-solid fa-paper-plane"></i> Send</button>
+            </div>
+            <hr>
+
+            <div class="comments-section">
+                <div class="comment-input-area">
+                    <img src="./Images/dp.jpg" alt="Your Profile" class="comment-user-img">
+                    <input type="text" class="new-comment-input" placeholder="Add a comment...">
+                    <button class="post-comment-btn btn-disabled">Post</button>
+                </div>
+
+                <div class="comments-list">
+                    <div class="comment-item">
+                        <img src="./Images/dpk.jpg" alt="Commenter" class="comment-user-img">
+                        <div class="comment-body">
+                            <strong>Rolex</strong>
+                            <small>UI/UX Designer</small>
+                            <p>Fantastic job on the responsiveness! Looks identical to the real thing.</p>
+                            <small class="comment-timestamp">1h ago</small>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </div>
+        </main>
+
+      <div class="right_side">
+          <div class="news">
+              <h4>Linkedin News</h4>
+              <i class="fa-solid fa-circle-info"></i>
+          </div>
+          <div class="latest_news">
+              <div class="one">
+                <i class="fa-solid fa-circle"></i>
+                <h5>Preparing for virtual interviews</h5>
+              </div>
+              <div class="two">
+                  <small>1d ago</small>
+              </div>
+          </div>
+          <div class="latest_news">
+              <div class="one">
+                <i class="fa-solid fa-circle"></i>
+                <h5>Biden visits US troops in Poland</h5>
+              </div>
+              <div class="two">
+                  <small>13hr ago</small>
+              </div>
+          </div>
+          <div class="latest_news">
+              <div class="one">
+                <i class="fa-solid fa-circle"></i>
+                <h5>What Indian customers are spending on</h5>
+              </div>
+              <div class="two">
+                  <small>1d ago</small>
+              </div>
+          </div>
+          <div class="latest_news">
+              <div class="one">
+                <i class="fa-solid fa-circle"></i>
+                <h5>Create your own career luck</h5>
+              </div>
+              <div class="two">
+                  <small>3d ago</small>
+              </div>
+          </div>
+          <div class="latest_news">
+              <div class="one">
+                <i class="fa-solid fa-circle"></i>
+                <h5>The latest in the startup world</h5>
+              </div>
+              <div class="two">
+                  <small>3d ago</small>
+              </div>
+          </div>
+          <div class="show_more">
+              <h5>Show more</h5>
+              <i class="fa-solid fa-angle-down"></i>
+          </div>
+      </div>
+
+      </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
